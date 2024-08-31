@@ -22,15 +22,5 @@ export class ProductsComponent implements OnInit {
         console.log(err);
       }
     })
-
-   /*  this.http.get('http://localhost:8082/api/products')
-    .subscribe({
-      next: (data) => {
-       this.products = data
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    }) */
   }
 }
