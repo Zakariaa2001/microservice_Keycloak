@@ -1,4 +1,4 @@
-package com.example.keyclock_spring.security;
+package com.example.orderservice.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +10,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -30,7 +28,7 @@ public class SecurityConfig {
                 .csrf(csrf->csrf.disable())
                 .cors(Customizer.withDefaults())
                 .headers(h->h.frameOptions(fo->fo.disable()))
-                .authorizeHttpRequests(ar -> ar.requestMatchers("/swagger-ui-html","/swagger-ui/**","/v3/**","/h2-console/**").permitAll())
+                .authorizeHttpRequests(ar -> ar.requestMatchers("/h2-console/**").permitAll())
                 //.authorizeHttpRequests(ar->ar.requestMatchers("/api/products/**").hasAuthority("ADMIN"))
                 .authorizeHttpRequests(ar -> ar.anyRequest().authenticated())
                 //.oauth2ResourceServer(o2rs->o2rs.jwt(Customizer.withDefaults()))
